@@ -25,6 +25,9 @@ class JpgRenderer extends PngRenderer
     protected function generateGdImage($image): void
     {
         \imagejpeg($image);
-        \imagedestroy($image);
+
+        if (version_compare(PHP_VERSION, '8.0.0', '<')) {
+            \imagedestroy($image);
+        }
     }
 }
