@@ -148,9 +148,5 @@ class PngRenderer implements RendererInterface
     protected function generateGdImage($image): void
     {
         \imagepng($image);
-
-        if (version_compare(PHP_VERSION, '8.0.0', '<')) {
-            \imagedestroy($image);
-        }
     }
 }
